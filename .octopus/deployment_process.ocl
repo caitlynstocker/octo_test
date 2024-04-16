@@ -6,7 +6,7 @@ step "run-a-script" {
         properties = {
             Octopus.Action.GitRepository.Source = "Project"
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptFileName = "hello.ps1"
+            Octopus.Action.Script.ScriptFileName = "#{Octopus.Project.Git.BasePath}/hello.ps1"
             Octopus.Action.Script.ScriptSource = "GitRepository"
         }
     }
