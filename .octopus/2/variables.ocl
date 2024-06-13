@@ -1,3 +1,0 @@
-variable "hey" {
-    value "123" {}
-}
