@@ -10,4 +10,18 @@ run_retention_policy {
     quantity_to_keep = 100
 }
 
-process {}
+process {
+    step "run-a-script" {
+        name = "Run a Script"
+
+        action {
+            action_type = "Octopus.Script"
+            properties = {
+                Octopus.Action.RunOnServer = "true"
+                Octopus.Action.Script.ScriptBody = "echo 23"
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "PowerShell"
+            }
+        }
+    }
+}
