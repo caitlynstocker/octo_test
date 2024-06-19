@@ -11,3 +11,18 @@ step "run-a-script" {
         }
     }
 }
+
+step "env-check" {
+    name = "ENV CHECK"
+
+    action {
+        action_type = "Octopus.Script"
+        environments = ["other"]
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo cats"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
