@@ -3,7 +3,7 @@ step "run-a-script" {
 
     action {
         action_type = "Octopus.Script"
-        environments = ["other", "dev"]
+        environments = ["otherZZ", "dev"]
         properties = {
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = "echo 12323132ssdfvxvsfgsdgdfbd"
