@@ -11,7 +11,7 @@ connectivity_policy {
 }
 
 run_retention_policy {
-    quantity_to_keep = 100
+    quantity_to_keep = 50
 }
 
 process {}
