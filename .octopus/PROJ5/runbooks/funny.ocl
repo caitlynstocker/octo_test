@@ -18,7 +18,7 @@ process {
             action_type = "Octopus.Script"
             properties = {
                 Octopus.Action.RunOnServer = "true"
-                Octopus.Action.Script.ScriptBody = "echo funnysxadsdfsfsdgdfgvcbfgsdfxdfsdfsdfxdvsdfsdf"
+                Octopus.Action.Script.ScriptBody = "echo funnysxadsdfsfsdgdfgvcbfgsdfxdfsdfsdfxdvsdfsdfkmlkijiokj"
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "PowerShell"
             }
