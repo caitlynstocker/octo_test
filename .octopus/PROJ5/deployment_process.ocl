@@ -5,7 +5,7 @@ step "run-a-script" {
         action_type = "Octopus.Script"
         properties = {
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "echo 123231"
+            Octopus.Action.Script.ScriptBody = "echo 12323132"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
