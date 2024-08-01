@@ -1,0 +1,3 @@
+variable "anything" {
+    value "main" {}
+}
