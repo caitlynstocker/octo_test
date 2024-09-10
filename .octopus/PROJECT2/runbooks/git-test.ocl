@@ -22,6 +22,18 @@ process {
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "PowerShell"
             }
+
+            packages "hello-world" {
+                acquisition_location = "Server"
+                feed = "octopus-server-built-in"
+                package_id = "hello-world"
+                properties = {
+                    Extract = "True"
+                    Purpose = ""
+                    SelectionMode = "immediate"
+                }
+                version = "1.4.5"
+            }
         }
     }
 }
