@@ -30,6 +30,7 @@ step "run-a-script" {
                 Purpose = ""
                 SelectionMode = "immediate"
             }
+            version = "sdfsdf"
         }
     }
 }
