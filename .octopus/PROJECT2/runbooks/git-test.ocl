@@ -32,7 +32,7 @@ process {
                     Purpose = ""
                     SelectionMode = "immediate"
                 }
-                version = ""
+                version = "5.0.0"
             }
         }
     }
