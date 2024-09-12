@@ -32,7 +32,7 @@ process {
                     Purpose = ""
                     SelectionMode = "immediate"
                 }
-                version = "sdfsdf"
+                version = ""
             }
         }
     }
