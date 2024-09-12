@@ -4,10 +4,21 @@ step "run-a-script" {
     action {
         action_type = "Octopus.Script"
         properties = {
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "goodbye-world"
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "echo 123"
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "PowerShell"
+            Octopus.Action.Script.ScriptFileName = "cats.sh"
+            Octopus.Action.Script.ScriptSource = "Package"
+        }
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "goodbye-world"
+            properties = {
+                SelectionMode = "immediate"
+            }
         }
 
         packages "hello-world" {
