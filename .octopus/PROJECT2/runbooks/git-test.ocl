@@ -32,7 +32,6 @@ process {
                     Purpose = ""
                     SelectionMode = "immediate"
                 }
-                version = "3.0.0"
             }
         }
     }
