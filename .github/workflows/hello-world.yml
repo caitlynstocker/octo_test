@@ -1,14 +1,9 @@
 # .github/workflows/hello-world.yml
 name: Hello World Action
 
-# Triggers the workflow on push or pull request events
+# Trigger the workflow manually via GitHub's workflow_dispatch event
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 # Define the jobs that will run
 jobs:
