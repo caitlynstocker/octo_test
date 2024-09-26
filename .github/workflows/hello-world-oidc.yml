@@ -20,10 +20,10 @@ jobs:
         run: echo "Hello, World!"
 
       - name: Login to Octopus Deploy 
-        uses: OctopusDeploy/login@v1
-        with: 
-          server: https://team-github.testoctopus.app
-          service_account_id: 80a41b7b-38f4-4828-b3ad-220378bc38f9
+      uses: OctopusDeploy/login@v1
+      with: 
+        server: https://team-github.testoctopus.app
+        service_account_id: a1af8709-bb78-414b-9c81-4cb845eeb2e2
 
       - name: Run a runbook in Octopus Deploy 🐙
         uses: OctopusDeploy/run-runbook-action@v3
