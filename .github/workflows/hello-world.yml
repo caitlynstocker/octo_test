@@ -29,4 +29,4 @@ jobs:
           project: 'gh_action_test'
           runbook: 'gh_action_test'
           environments: |
-            'Development'
+            'development'
