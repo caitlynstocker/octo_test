@@ -1,0 +1,36 @@
+# .github/workflows/hello-world-oicd.yml
+name: Hello OICD Action
+
+# Trigger the workflow manually via GitHub's workflow_dispatch event
+on:
+  workflow_dispatch:
+
+# Define the jobs that will run
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out the repository under $GITHUB_WORKSPACE, so the workflow can access it
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Run a "Hello, World!" script
+      - name: Say Hello
+        run: echo "Hello, World!"
+
+      - name: Login to Octopus Deploy 
+        uses: OctopusDeploy/login@v1
+        with: 
+          server: https://team-github.testoctopus.app
+          service_account_id: 80a41b7b-38f4-4828-b3ad-220378bc38f9
+
+      - name: Run a runbook in Octopus Deploy 🐙
+        uses: OctopusDeploy/run-runbook-action@v3
+        env:
+          OCTOPUS_SPACE: 'Caitlyn'
+        with:
+          project: 'gh_action_test'
+          runbook: 'gh_action_test'
+          environments: |
+            Development
