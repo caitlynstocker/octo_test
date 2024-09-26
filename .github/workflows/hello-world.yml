@@ -1,0 +1,25 @@
+# .github/workflows/hello-world.yml
+name: Hello World Action
+
+# Triggers the workflow on push or pull request events
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Define the jobs that will run
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out the repository under $GITHUB_WORKSPACE, so the workflow can access it
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Run a "Hello, World!" script
+      - name: Say Hello
+        run: echo "Hello, World!"
