@@ -44,16 +44,20 @@ jobs:
       - name: Create a release in Octopus Deploy 🐙
         uses: OctopusDeploy/create-release-action@v3
         with:
-          project: 'db_action_test'
+          project: 'gh_action_test'
           release_number: '1.0.0'
+          git_ref: ${{ github.ref }}
+          git_commit: ${{ github.sha }}
       
       - name: Deploy a release in Octopus Deploy 🐙
         uses: OctopusDeploy/deploy-release-action@v3
         with:
-          project: 'db_action_test'
+          project: 'gh_action_test'
           release_number: '1.0.0'
           environments: |
             Development
           variables: |
             Foo: Bar
             Fizz: Buzz
+          git_ref: ${{ github.ref }}
+          git_commit: ${{ github.sha }}
