@@ -22,7 +22,7 @@ jobs:
       - name: Your build ✨
         run: echo "Your build steps!"
 
-      # Action to Login to Octopus Deploy using OICD
+      # Action to Login to Octopus Deploy
       - name: Login to Octopus Deploy 🐙
         uses: OctopusDeploy/login@v1
         with: 

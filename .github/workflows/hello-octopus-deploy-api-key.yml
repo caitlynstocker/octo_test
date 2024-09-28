@@ -1,5 +1,5 @@
 # .github/workflows/hello-octopus-deploy.yml
-name: Hello Octopus Deploy API Key
+name: Hello Octopus Deploy
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
       id-token: write
 
     env:
-      OCTOPUS_SPACE: 'Caitlyn'
+      OCTOPUS_SPACE: 'Outer Space'
       OCTOPUS_API_KEY: ${{ secrets.API_KEY  }}
       OCTOPUS_URL: ${{ secrets.SERVER }}
 
@@ -28,8 +28,8 @@ jobs:
       - name: Create a release in Octopus Deploy 🐙
         uses: OctopusDeploy/create-release-action@v3
         with:
-          project: 'gh_action_test'
-          release_number: '2.0.0'
+          project: 'MyProject'
+          release_number: '1.0.0'
           git_ref: ${{ github.ref }}
           git_commit: ${{ github.sha }}
       
@@ -37,8 +37,8 @@ jobs:
       - name: Deploy a release in Octopus Deploy 🐙
         uses: OctopusDeploy/deploy-release-action@v3
         with:
-          project: 'gh_action_test'
-          release_number: '2.0.0'
+          project: 'MyProject'
+          release_number: '1.0.0'
           environments: |
             Development
           variables: |
