@@ -44,12 +44,12 @@ jobs:
       - name: Create a release in Octopus Deploy 🐙
         uses: OctopusDeploy/create-release-action@v3
         with:
-          project: 'gh_action_test'
+          project: 'db_action_test'
       
       - name: Deploy a release in Octopus Deploy 🐙
         uses: OctopusDeploy/deploy-release-action@v3
         with:
-          project: 'gh_action_test'
+          project: 'db_action_test'
           release_number: '1.0.0'
           environments: |
             Development
