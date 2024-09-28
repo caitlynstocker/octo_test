@@ -45,6 +45,7 @@ jobs:
         uses: OctopusDeploy/create-release-action@v3
         with:
           project: 'db_action_test'
+          release_number: '1.0.0'
       
       - name: Deploy a release in Octopus Deploy 🐙
         uses: OctopusDeploy/deploy-release-action@v3
