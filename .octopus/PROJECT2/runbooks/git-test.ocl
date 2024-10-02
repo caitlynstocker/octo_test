@@ -10,30 +10,4 @@ run_retention_policy {
     quantity_to_keep = 100
 }
 
-process {
-    step "run-a-script" {
-        name = "Run a Script"
-
-        action {
-            action_type = "Octopus.Script"
-            properties = {
-                Octopus.Action.RunOnServer = "true"
-                Octopus.Action.Script.ScriptBody = "blecho 123"
-                Octopus.Action.Script.ScriptSource = "Inline"
-                Octopus.Action.Script.Syntax = "PowerShell"
-            }
-
-            packages "hello-world" {
-                acquisition_location = "Server"
-                feed = "octopus-server-built-in"
-                package_id = "hello-world"
-                properties = {
-                    Extract = "True"
-                    Purpose = ""
-                    SelectionMode = "immediate"
-                }
-                version = "notaversion"
-            }
-        }
-    }
-}
+process {}
