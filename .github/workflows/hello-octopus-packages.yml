@@ -26,30 +26,31 @@ jobs:
           server: https://team-github.testoctopus.app
           service_account_id: a1af8709-bb78-414b-9c81-4cb845eeb2e2
       
-      # Action to create a Zip package
+      # Action to Create a Zip Package
       - name: Create a Zip package 🐙
         uses: OctopusDeploy/create-zip-package-action@v3
         with:
           package_id: 'HelloPackage'
-          version: '1.0.0'
+          version: '1.0.5'
           output_folder: './packages/'
           base_path: './src/files-to-package/'
           files: |
             **/*.*
-        
+      
+      # Action to Push a Package
       - name: Push a package to Octopus Deploy 🐙
         uses: OctopusDeploy/push-package-action@v3
         with:
           packages: |
             packages/**/*.zip
       
-      # # Action to Deploy a Release
-      # - name: Deploy a release in Octopus Deploy 🐙
-      #   uses: OctopusDeploy/deploy-release-action@v3
-      #   with:
-      #     project: 'MyProject'
-      #     release_number: '1.0.0'
-      #     environments: |
-      #       Development
-      #     git_ref: ${{ github.ref }}
-      #     git_commit: ${{ github.sha }}
+      # Use the Package in a Release
+      - name: Use the Package in a Release 🎉
+        uses: OctopusDeploy/create-release-action@v3
+        with:
+          project: 'db_action_test'
+          release_number: '1.0.5'
+          # git_ref: ${{ github.ref }}
+          # git_commit: ${{ github.sha }}
+          packages: |
+            HelloPackage:1.0.5
