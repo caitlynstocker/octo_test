@@ -1,0 +1,55 @@
+# .github/workflows/hello-octopus-packages.yml
+name: Hello Octopus Packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  octopus-packages:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+
+    env:
+      # OCTOPUS_SPACE: 'Outer Space'
+      OCTOPUS_SPACE: 'Caitlyn'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Action to Login to Octopus Deploy
+      - name: Login to Octopus Deploy 🐙
+        uses: OctopusDeploy/login@v1
+        with: 
+          server: https://team-github.testoctopus.app
+          service_account_id: a1af8709-bb78-414b-9c81-4cb845eeb2e2
+      
+      # Action to create a Zip package
+      - name: Create a Zip package 🐙
+        uses: OctopusDeploy/create-zip-package-action@v3
+        with:
+          package_id: 'HelloPackage'
+          version: '1.0.0'
+          output_folder: './packages/'
+          base_path: './src/files-to-package/'
+          files: |
+            **/*.*
+        
+      - name: Push a package to Octopus Deploy 🐙
+        uses: OctopusDeploy/push-package-action@v3
+        with:
+          packages: |
+            packages/**/*.zip
+      
+      # # Action to Deploy a Release
+      # - name: Deploy a release in Octopus Deploy 🐙
+      #   uses: OctopusDeploy/deploy-release-action@v3
+      #   with:
+      #     project: 'MyProject'
+      #     release_number: '1.0.0'
+      #     environments: |
+      #       Development
+      #     git_ref: ${{ github.ref }}
+      #     git_commit: ${{ github.sha }}
