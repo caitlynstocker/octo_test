@@ -21,7 +21,6 @@ run_retention_policy {
             }
         }
     }
-}
 
 process {
     step "run-a-script" {
