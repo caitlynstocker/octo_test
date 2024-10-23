@@ -8,7 +8,6 @@ connectivity_policy {
 }
 
 run_retention_policy {
-
     step "run-a-script" {
         name = "Run a Script"
 
@@ -17,6 +16,22 @@ run_retention_policy {
             properties = {
                 Octopus.Action.RunOnServer = "true"
                 Octopus.Action.Script.ScriptBody = "echo \"Definitely updating a real kubernetes deployment\""
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "PowerShell"
+            }
+        }
+    }
+}
+
+process {
+    step "run-a-script" {
+        name = "Run a Script"
+
+        action {
+            action_type = "Octopus.Script"
+            properties = {
+                Octopus.Action.RunOnServer = "true"
+                Octopus.Action.Script.ScriptBody = "echo 123"
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "PowerShell"
             }
