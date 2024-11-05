@@ -10,4 +10,30 @@ run_retention_policy {
     quantity_to_keep = 100
 }
 
-process {}
+process {
+    step "run-a-script" {
+        name = "Run a Script"
+
+        action {
+            action_type = "Octopus.Script"
+            properties = {
+                Octopus.Action.Package.DownloadOnTentacle = "False"
+                Octopus.Action.Package.FeedId = "octopus-server-built-in"
+                Octopus.Action.Package.PackageId = "HelloPackage"
+                Octopus.Action.Script.ScriptFileName = "bash.sh"
+                Octopus.Action.Script.ScriptSource = "Package"
+            }
+            worker_pool = "hosted-ubuntu"
+
+            packages {
+                acquisition_location = "Server"
+                feed = "octopus-server-built-in"
+                package_id = "HelloPackage"
+                properties = {
+                    SelectionMode = "immediate"
+                }
+                version = "1.1.1"
+            }
+        }
+    }
+}
