@@ -19,9 +19,9 @@ process {
             properties = {
                 Octopus.Action.RunOnServer = "true"
                 Octopus.Action.Script.ScriptBody = <<-EOT
-                    echo $(get_octopusvariable "Octopus.RunbookRun.Git.BranchName")
-                    echo $(get_octopusvariable "Octopus.RunbookRun.Git.Ref")
-                    echo $(get_octopusvariable "Octopus.RunbookRun.Git.CommitHash")
+                    echo "Branch Name: $(get_octopusvariable "Octopus.RunbookRun.Git.BranchName")"
+                    echo "Reference: $(get_octopusvariable "Octopus.RunbookRun.Git.Ref")"
+                    echo "Commit Hash: $(get_octopusvariable "Octopus.RunbookRun.Git.CommitHash")"
                     EOT
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "Bash"
