@@ -19,9 +19,9 @@ process {
             properties = {
                 Octopus.Action.RunOnServer = "true"
                 Octopus.Action.Script.ScriptBody = <<-EOT
-                    echo "Branch name " + $OctopusParameters["Octopus.RunbookRun.Git.BranchName"]
-                    echo "Commit " +  $OctopusParameters["Octopus.RunbookRun.Git.CommitHash"]
-                    echo "Git Ref " + $OctopusParameters["Octopus.RunbookRun.Git.Ref"]
+                    echo $OctopusParameters["Octopus.RunbookRun.Git.BranchName"]
+                    echo $OctopusParameters["Octopus.RunbookRun.Git.CommitHash"]
+                    echo $OctopusParameters["Octopus.RunbookRun.Git.Ref"]
                     
                     EOT
                 Octopus.Action.Script.ScriptSource = "Inline"
