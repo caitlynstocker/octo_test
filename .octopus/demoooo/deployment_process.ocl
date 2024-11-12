@@ -9,10 +9,10 @@ step "run-a-script" {
                 echo "Branch Name: $(get_octopusvariable "Octopus.Release.Git.BranchName")"
                 echo "Reference: $(get_octopusvariable "Octopus.Release.Git.Ref")"
                 echo "Commit Hash: $(get_octopusvariable "Octopus.Release.Git.CommitHash")"
-                echo "Commit tag: $OctopusParameters["Octopus.Release.Git.TagName"]"
+                echo "Commit tag: $(get_octopusvariable "Octopus.Release.Git.TagName")"
                 EOT
             Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "PowerShell"
+            Octopus.Action.Script.Syntax = "Bash"
         }
     }
 }
