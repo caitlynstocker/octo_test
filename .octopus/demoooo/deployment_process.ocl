@@ -5,7 +5,12 @@ step "run-a-script" {
         action_type = "Octopus.Script"
         properties = {
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "echo 123"
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                echo "Branch Name: $(get_octopusvariable "Octopus.Release.Git.BranchName")"
+                echo "Reference: $(get_octopusvariable "Octopus.Release.Git.Ref")"
+                echo "Commit Hash: $(get_octopusvariable "Octopus.Release.Git.CommitHash")"
+                echo "Commit tag: $OctopusParameters["Octopus.Release.Git.TagName"]"
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
