@@ -1,0 +1,25 @@
+name = "sdfsdf"
+default_guided_failure_mode = "EnvironmentDefault"
+description = ""
+
+connectivity_policy {
+    allow_deployments_to_no_targets = true
+}
+
+run_retention_policy {
+    quantity_to_keep = 100
+}
+
+process {
+    step "templato" {
+        name = "TEMPLATO"
+
+        action {
+            properties = {
+                Octopus.Action.RunOnServer = "true"
+                Octopus.Action.Template.Id = "ActionTemplates-2"
+                Octopus.Action.Template.Version = "0"
+            }
+        }
+    }
+}
