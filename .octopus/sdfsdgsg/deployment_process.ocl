@@ -1,0 +1,11 @@
+step "templato" {
+    name = "TEMPLATO"
+
+    action {
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Template.Id = "ActionTemplates-2"
+            Octopus.Action.Template.Version = "0"
+        }
+    }
+}
