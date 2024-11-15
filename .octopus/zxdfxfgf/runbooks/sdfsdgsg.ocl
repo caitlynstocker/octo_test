@@ -12,7 +12,7 @@ run_retention_policy {
 
 process {
     step "templato" {
-        name = "TEMPLATO"
+        name = "TEMPLATOzsfz"
 
         action {
             properties = {
