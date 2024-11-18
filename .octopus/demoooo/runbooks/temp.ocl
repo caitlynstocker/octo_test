@@ -23,6 +23,7 @@ process {
                     echo "Reference: $(get_octopusvariable "Octopus.RunbookRun.Git.Ref")"
                     echo "Commit Hash: $(get_octopusvariable "Octopus.RunbookRun.Git.CommitHash")"
                     echo "Tag: $(get_octopusvariable "Octopus.RunbookRun.Git.TagName")"
+                    sddfsdfg
                     EOT
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "Bash"
