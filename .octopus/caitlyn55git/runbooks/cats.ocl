@@ -17,7 +17,11 @@ process {
         action {
             action_type = "Octopus.Script"
             properties = {
-                Octopus.Action.Script.ScriptBody = "echo 123"
+                Octopus.Action.Script.ScriptBody = <<-EOT
+                    echo "Starting sleep"
+                    Start-Sleep -Seconds 30
+                    echo "Runbook finished!"
+                    EOT
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "PowerShell"
             }
