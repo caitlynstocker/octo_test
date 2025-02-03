@@ -19,7 +19,7 @@ process {
             properties = {
                 Octopus.Action.Script.ScriptBody = <<-EOT
                     echo "Backing up the OctoPet Store..."
-                    sleep 2000
+                    sleep 10
                     echo "Done!!"
                     EOT
                 Octopus.Action.Script.ScriptSource = "Inline"
