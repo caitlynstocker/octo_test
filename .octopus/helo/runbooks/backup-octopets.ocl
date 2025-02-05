@@ -12,7 +12,7 @@ run_retention_policy {
 
 process {
     step "run-a-script" {
-        name = "Run a Script"
+        name = "Backup Pet Store"
 
         action {
             action_type = "Octopus.Script"
