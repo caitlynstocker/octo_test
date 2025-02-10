@@ -20,7 +20,7 @@ process {
                 Octopus.Action.Script.ScriptBody = <<-EOT
                     echo "Backing up the OctoPet Store..."
                     sleep 10
-                    echo "Done!!!!!!!!!!"
+                    echo "Done!!!!!!!!!! heyy"
                     EOT
                 Octopus.Action.Script.ScriptSource = "Inline"
                 Octopus.Action.Script.Syntax = "PowerShell"
