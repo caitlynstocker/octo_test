@@ -26,6 +26,17 @@ process {
                 OctopusUseBundledTooling = "False"
             }
             worker_pool = "default-worker-pool"
+
+            packages "goodbye-world" {
+                acquisition_location = "Server"
+                feed = "octopus-server-built-in"
+                package_id = "goodbye-world"
+                properties = {
+                    Extract = "True"
+                    Purpose = ""
+                    SelectionMode = "immediate"
+                }
+            }
         }
     }
 }
