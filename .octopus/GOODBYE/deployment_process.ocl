@@ -3,6 +3,7 @@ step "run-a-script" {
 
     action {
         action_type = "Octopus.Script"
+        channels = ["tempchanzz"]
         properties = {
             Octopus.Action.Script.ScriptBody = "echo 123"
             Octopus.Action.Script.ScriptSource = "Inline"
