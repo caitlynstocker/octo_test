@@ -10,6 +10,7 @@ step "run-a-script" {
             Octopus.Action.Script.Syntax = "PowerShell"
             OctopusUseBundledTooling = "False"
         }
+        tenant_tags = ["git/git"]
         worker_pool = "default-worker-pool"
     }
 }
