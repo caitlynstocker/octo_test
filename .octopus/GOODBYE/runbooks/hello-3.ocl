@@ -22,7 +22,6 @@ process {
                 Octopus.Action.Script.Syntax = "PowerShell"
                 OctopusUseBundledTooling = "False"
             }
-            tenant_tags = ["hellotagset/newtag"]
             worker_pool = "default-worker-pool"
         }
     }
