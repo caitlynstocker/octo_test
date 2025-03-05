@@ -13,3 +13,15 @@ step "run-a-script" {
         worker_pool = "default-worker-pool"
     }
 }
+
+step "templato" {
+    name = "TEMPLATO"
+
+    action {
+        properties = {
+            Octopus.Action.Template.Id = "ActionTemplates-2"
+            Octopus.Action.Template.Version = "0"
+        }
+        worker_pool = "default-worker-pool"
+    }
+}
