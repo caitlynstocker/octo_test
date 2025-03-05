@@ -10,6 +10,5 @@ step "run-a-script" {
             Octopus.Action.Script.Syntax = "PowerShell"
             OctopusUseBundledTooling = "False"
         }
-        worker_pool = "git"
     }
 }
