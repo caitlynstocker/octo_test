@@ -11,16 +11,5 @@ step "run-a-script" {
             OctopusUseBundledTooling = "False"
         }
         worker_pool = "default-worker-pool"
-
-        packages "AWSSDK.Core" {
-            acquisition_location = "Server"
-            feed = "gitfeed"
-            package_id = "AWSSDK.Core"
-            properties = {
-                Extract = "True"
-                Purpose = ""
-                SelectionMode = "immediate"
-            }
-        }
     }
 }
