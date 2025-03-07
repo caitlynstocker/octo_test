@@ -12,5 +12,16 @@ step "run-a-script" {
         }
         tenant_tags = ["gitB/AAAAAAAAAAAB", "gitB/HHHHHHHHHHHHB"]
         worker_pool = "default-worker-pool"
+
+        packages "AWSSDK.Core" {
+            acquisition_location = "Server"
+            feed = "foooedo"
+            package_id = "AWSSDK.Core"
+            properties = {
+                Extract = "True"
+                Purpose = ""
+                SelectionMode = "immediate"
+            }
+        }
     }
 }
