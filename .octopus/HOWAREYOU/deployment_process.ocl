@@ -32,7 +32,7 @@ step "templato" {
     action {
         properties = {
             Octopus.Action.Template.Id = "ActionTemplates-22"
-            Octopus.Action.Template.Version = "1"
+            Octopus.Action.Template.Version = "2"
         }
         worker_pool = "default-worker-pool"
     }
