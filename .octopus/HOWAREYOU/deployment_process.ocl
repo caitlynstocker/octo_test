@@ -11,7 +11,7 @@ step "run-a-script" {
             OctopusUseBundledTooling = "False"
         }
         tenant_tags = ["gitB/AAAAAAAAAAAB", "gitB/HHHHHHHHHHHHB"]
-        worker_pool = "default-worker-pool"
+        worker_pool = "git"
 
         packages "AWSSDK.Core" {
             acquisition_location = "Server"
