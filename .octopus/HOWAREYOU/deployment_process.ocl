@@ -25,3 +25,15 @@ step "run-a-script" {
         }
     }
 }
+
+step "templato" {
+    name = "templato"
+
+    action {
+        properties = {
+            Octopus.Action.Template.Id = "ActionTemplates-22"
+            Octopus.Action.Template.Version = "0"
+        }
+        worker_pool = "default-worker-pool"
+    }
+}
