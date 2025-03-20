@@ -1,0 +1,14 @@
+step "do-a-deployment" {
+    name = "Do a deployment"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Script.ScriptBody = "echo \"Doing a deployment\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+            OctopusUseBundledTooling = "False"
+        }
+        worker_pool = "default-worker-pool"
+    }
+}
