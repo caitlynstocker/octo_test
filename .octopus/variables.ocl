@@ -1,0 +1,3 @@
+variable "regualar" {
+    value "i'm in git" {}
+}
