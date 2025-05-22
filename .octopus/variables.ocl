@@ -1,5 +1,3 @@
 variable "regular" {
-    value "i'm in git $" {
-        environment = ["dev"]
-    }
+    value "i'm in git $" {}
 }
