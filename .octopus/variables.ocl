@@ -1,3 +1,3 @@
 variable "regular" {
-    value "i'm in git" {}
+    value "i'm in gitsdf" {}
 }
