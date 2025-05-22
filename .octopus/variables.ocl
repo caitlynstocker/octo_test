@@ -1,7 +1,3 @@
-variable "sensitive II" {
-    value "sdfsdf" {}
-}
-
 variable "regular" {
     value "i'm in gitsdfsdf" {}
 }
