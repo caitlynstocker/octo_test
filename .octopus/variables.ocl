@@ -1,7 +1,3 @@
 variable "regular" {
     value "i'm in gitsdfsdf" {}
 }
-
-variable "switch" {
-    value "1" {}
-}
