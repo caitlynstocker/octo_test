@@ -1,5 +1,5 @@
 step "run-a-script" {
-    name = "Run a Script"
+    name = "On main branch"
 
     action {
         action_type = "Octopus.Script"
