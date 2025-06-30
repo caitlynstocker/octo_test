@@ -1,5 +1,0 @@
-variable "hello" {
-    value "123" {
-        environment = ["parent"]
-    }
-}
