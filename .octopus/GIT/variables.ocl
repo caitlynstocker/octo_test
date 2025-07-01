@@ -1,0 +1,5 @@
+variable "hello" {
+    value "789" {
+        environment = ["parent"]
+    }
+}
