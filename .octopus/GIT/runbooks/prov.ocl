@@ -16,7 +16,7 @@ process {
 
         action {
             action_type = "Octopus.Script"
-            environments = ["dev", "parent"]
+            excluded_environments = ["parent"]
             properties = {
                 Octopus.Action.Script.ScriptBody = "echo $hello"
                 Octopus.Action.Script.ScriptSource = "Inline"
