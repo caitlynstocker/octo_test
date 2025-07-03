@@ -3,6 +3,7 @@ step "run-a-script" {
 
     action {
         action_type = "Octopus.Script"
+        environments = ["dev"]
         properties = {
             Octopus.Action.Script.ScriptBody = "echo $hello"
             Octopus.Action.Script.ScriptSource = "Inline"
