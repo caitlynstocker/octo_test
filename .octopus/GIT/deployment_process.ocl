@@ -3,7 +3,6 @@ step "run-a-script" {
 
     action {
         action_type = "Octopus.Script"
-        environments = ["git-parent"]
         properties = {
             Octopus.Action.Script.ScriptBody = "echo $hello"
             Octopus.Action.Script.ScriptSource = "Inline"
