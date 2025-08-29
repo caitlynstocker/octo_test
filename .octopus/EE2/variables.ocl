@@ -1,0 +1,5 @@
+variable "abc" {
+    value "abcd" {
+        machine = ["caitlyn"]
+    }
+}
