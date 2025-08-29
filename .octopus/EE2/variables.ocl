@@ -1,1 +1,5 @@
-
+variable "3" {
+    value "3" {
+        machine = ["caitlyn-3"]
+    }
+}
