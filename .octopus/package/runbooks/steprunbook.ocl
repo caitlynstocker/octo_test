@@ -22,4 +22,31 @@ process {
             worker_pool = "default-worker-pool"
         }
     }
+
+    step "run-a-script" {
+        name = "Run a Script"
+
+        action {
+            action_type = "Octopus.Script"
+            properties = {
+                Octopus.Action.Script.ScriptBody = "echo this"
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "PowerShell"
+                OctopusUseBundledTooling = "False"
+            }
+            worker_pool = "default-worker-pool"
+
+            packages "HelloPackage" {
+                acquisition_location = "Server"
+                feed = "octopus-server-built-in"
+                package_id = "HelloPackage"
+                properties = {
+                    Extract = "True"
+                    Purpose = ""
+                    SelectionMode = "immediate"
+                }
+                version = "1.0.0"
+            }
+        }
+    }
 }
