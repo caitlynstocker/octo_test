@@ -1,0 +1,25 @@
+name = "check steppo"
+default_guided_failure_mode = "EnvironmentDefault"
+description = ""
+
+connectivity_policy {
+    allow_deployments_to_no_targets = true
+}
+
+run_retention_policy {
+    quantity_to_keep = 100
+}
+
+process {
+    step "steppo" {
+        name = "steppo"
+
+        action {
+            properties = {
+                Octopus.Action.Template.Id = "ActionTemplates-101"
+                Octopus.Action.Template.Version = "0"
+            }
+            worker_pool = "hosted-windows"
+        }
+    }
+}
