@@ -20,6 +20,18 @@ process {
                 Octopus.Action.Template.Version = "0"
             }
             worker_pool = "default-worker-pool"
+            packages "HelloPackage" {
+                acquisition_location = "Server"
+                feed = "octopus-server-built-in"
+                package_id = "HelloPackage"
+                properties = {
+                    Extract = "True"
+                    Purpose = ""
+                    SelectionMode = "immediate"
+                }
+                version = "1.0.0"
+            }
         }
     }
+
 }
