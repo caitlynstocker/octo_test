@@ -1,25 +1,8 @@
 step "run-a-script" {
-    name = "Run a Script"
-
-    action "run-a-script" {
-        action_type = "Octopus.Script"
-        is_disabled = true
-        name = "Run a Script"
-        properties = {
-            Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = <<-EOT
-                echo "Your param is:"
-                # echo $OctopusParameters["Octopus.Environment.State[App URL'o]"]
-                echo $(get_octopusvariable "Octopus.Environment.State[URL]")
-                EOT
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "Bash"
-        }
-    }
+    name = "kidoo"
 
     action "kidoo" {
         action_type = "Octopus.Script"
-        name = "kidoo"
         properties = {
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = "echo 123"
@@ -42,6 +25,25 @@ step "123" {
             Octopus.Action.Script.ScriptBody = "echo 123"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
+
+step "run-a-script-1" {
+    name = "Run a Script 1"
+
+    action "run-a-script" {
+        action_type = "Octopus.Script"
+        name = "Run a Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                echo "Your param is:"
+                # echo $OctopusParameters["Octopus.Environment.State[App URL'o]"]
+                echo $(get_octopusvariable "Octopus.Environment.State[URL]")
+                EOT
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
         }
     }
 }
