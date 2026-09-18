@@ -30,11 +30,10 @@ step "123" {
 }
 
 step "run-a-script-1" {
-    name = "Run a Script 1"
+    name = "Run a Script with a really long name wow what a long name"
 
     action "run-a-script" {
         action_type = "Octopus.Script"
-        name = "Run a Script"
         properties = {
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
