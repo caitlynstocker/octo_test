@@ -30,19 +30,15 @@ step "123" {
 }
 
 step "run-a-script-1" {
-    name = "Run a Script with a really long name wow what a long name"
+    name = "Step with a git source"
 
     action "run-a-script" {
         action_type = "Octopus.Script"
         properties = {
+            Octopus.Action.GitRepository.Source = "Project"
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = <<-EOT
-                echo "Your param is:"
-                # echo $OctopusParameters["Octopus.Environment.State[App URL'o]"]
-                echo $(get_octopusvariable "Octopus.Environment.State[URL]")
-                EOT
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "Bash"
+            Octopus.Action.Script.ScriptFileName = "https://github.com/caitlynstocker/octo_test/blob/main/src/files-to-package/bash.sh"
+            Octopus.Action.Script.ScriptSource = "GitRepository"
         }
     }
 }
