@@ -5,4 +5,10 @@ variable "account" {
         action = ["123"]
         environment = ["rando"]
     }
+
+    value "another-one" {
+        action = ["kidoo"]
+        description = ""
+        environment = ["rando"]
+    }
 }
