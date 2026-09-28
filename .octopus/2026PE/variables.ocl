@@ -11,4 +11,9 @@ variable "account" {
         description = ""
         environment = ["rando"]
     }
+
+    value "hello-azure-account" {
+        action = ["123"]
+        environment = ["production"]
+    }
 }
