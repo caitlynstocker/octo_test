@@ -1,0 +1,8 @@
+variable "account" {
+    type = "AzureAccount"
+
+    value "hello-azure-account" {
+        action = ["123"]
+        environment = ["rando"]
+    }
+}
