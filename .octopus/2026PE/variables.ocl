@@ -1,14 +1,14 @@
-variable "account" {
+variable "account_o" {
     type = "AzureAccount"
-
-    value "hello-azure-account" {
-        action = ["123"]
-        environment = ["rando"]
-    }
 
     value "another-one" {
         action = ["kidoo"]
         description = ""
+        environment = ["rando"]
+    }
+
+    value "hello-azure-account" {
+        action = ["123"]
         environment = ["rando"]
     }
 
