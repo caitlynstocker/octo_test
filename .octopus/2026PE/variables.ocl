@@ -1,20 +1,20 @@
 variable "account_o" {
     type = "AzureAccount"
 
-    value "another-one" {
-        action = ["kidoo"]
-        description = ""
-        environment = ["rando"]
-    }
-
-    value "hello-azure-account" {
-        action = ["123"]
-        environment = ["rando"]
-    }
-
     value "hello-azure-account" {
         action = ["123"]
         channel = ["default"]
         environment = ["production"]
+    }
+
+    value "another-one" {
+        action = ["kidoo"]
+        description = ""
+        environment = ["development"]
+    }
+
+    value "hello-azure-account" {
+        action = ["123"]
+        environment = ["development"]
     }
 }
