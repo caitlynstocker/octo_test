@@ -7,14 +7,15 @@ variable "account_o" {
         environment = ["production"]
     }
 
+    value "hello-azure-account" {
+        action = ["123"]
+        environment = ["development"]
+    }
+
     value "another-one" {
         action = ["kidoo"]
         description = ""
         environment = ["development"]
-    }
-
-    value "hello-azure-account" {
-        action = ["123"]
-        environment = ["development"]
+        tenant_tag = ["tenant-taggo/taggo"]
     }
 }
