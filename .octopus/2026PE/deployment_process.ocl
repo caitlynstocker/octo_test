@@ -13,6 +13,7 @@ step "run-a-script" {
 }
 
 step "123" {
+    condition = "Always"
     name = "Refs account var in script"
     properties = {
         Octopus.Action.TargetRoles = "hello-tag"
