@@ -46,6 +46,7 @@ step "run-a-script-1" {
 }
 
 step "run-an-azure-script" {
+    condition = "Always"
     name = "Run an Azure Script"
 
     action {
