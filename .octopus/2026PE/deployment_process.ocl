@@ -42,3 +42,18 @@ step "run-a-script-1" {
         }
     }
 }
+
+step "run-an-azure-script" {
+    name = "Run an Azure Script"
+
+    action {
+        action_type = "Octopus.AzurePowerShell"
+        properties = {
+            Octopus.Action.Azure.AccountId = "hello-azure-account"
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo 123"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+    }
+}
