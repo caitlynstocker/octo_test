@@ -13,7 +13,7 @@ step "run-a-script" {
 }
 
 step "123" {
-    name = "123"
+    name = "Refs account var in script"
     properties = {
         Octopus.Action.TargetRoles = "hello-tag"
     }
@@ -22,7 +22,7 @@ step "123" {
         action_type = "Octopus.Script"
         properties = {
             Octopus.Action.RunOnServer = "false"
-            Octopus.Action.Script.ScriptBody = "echo #{another-one}"
+            Octopus.Action.Script.ScriptBody = "echo $account_o"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
