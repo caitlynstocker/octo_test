@@ -14,6 +14,7 @@ variable "account" {
 
     value "hello-azure-account" {
         action = ["123"]
+        channel = ["default"]
         environment = ["production"]
     }
 }
