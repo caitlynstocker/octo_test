@@ -31,6 +31,7 @@ step "123" {
 }
 
 step "run-a-script-1" {
+    condition = "Always"
     name = "Step with a git source"
 
     action "run-a-script" {
