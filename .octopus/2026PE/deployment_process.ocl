@@ -60,7 +60,7 @@ step "run-a-script-1" {
         properties = {
             Octopus.Action.GitRepository.Source = "Project"
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptFileName = "https://github.com/caitlynstocker/octo_test/blob/main/src/files-to-package/bash.sh"
+            Octopus.Action.Script.ScriptFileName = "src/files-to-package/bash.sh"
             Octopus.Action.Script.ScriptSource = "GitRepository"
         }
     }
