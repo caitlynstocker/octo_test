@@ -27,6 +27,16 @@ step "123" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
+
+        packages "zippo" {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "zippo"
+            properties = {
+                Extract = "True"
+                SelectionMode = "immediate"
+            }
+        }
     }
 }
 
