@@ -157,3 +157,17 @@ step "padding-4" {
         }
     }
 }
+
+step "padding-5" {
+    name = "Padding 5"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo 1234"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
