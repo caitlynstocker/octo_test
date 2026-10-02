@@ -84,10 +84,10 @@ step "123" {
             Octopus.Action.Script.Syntax = "PowerShell"
         }
 
-        packages "zippo" {
+        packages "1234" {
             acquisition_location = "Server"
             feed = "octopus-server-built-in"
-            package_id = "zippo"
+            package_id = "#{var.123}"
             properties = {
                 Extract = "True"
                 SelectionMode = "immediate"
