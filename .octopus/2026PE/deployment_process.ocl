@@ -101,3 +101,17 @@ step "deploy-a-bicep-template" {
         worker_pool_variable = ""
     }
 }
+
+step "padding-1" {
+    name = "Padding 1"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo 123"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
