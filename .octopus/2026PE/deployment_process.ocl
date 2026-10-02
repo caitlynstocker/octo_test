@@ -169,5 +169,15 @@ step "run-a-script-1" {
             Octopus.Action.Script.ScriptFileName = "src/files-to-package/bash.sh"
             Octopus.Action.Script.ScriptSource = "GitRepository"
         }
+
+        packages "zippo" {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "zippo"
+            properties = {
+                Extract = "True"
+                SelectionMode = "immediate"
+            }
+        }
     }
 }
