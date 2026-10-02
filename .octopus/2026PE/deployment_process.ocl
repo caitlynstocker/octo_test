@@ -81,3 +81,23 @@ step "run-an-azure-script" {
         }
     }
 }
+
+step "deploy-a-bicep-template" {
+    name = "Deploy a Bicep Template"
+    properties = {
+        Octopus.Action.TargetRoles = "hello-tag"
+    }
+
+    action {
+        action_type = "Octopus.AzureDeployBicepTemplate"
+        properties = {
+            Octopus.Action.Azure.AccountId = "another-one"
+            Octopus.Action.Azure.BicepTemplate = "src/files-to-package/template.bicep"
+            Octopus.Action.Azure.ResourceGroupDeploymentMode = "Incremental"
+            Octopus.Action.Azure.TemplateSource = "GitRepository"
+            Octopus.Action.GitRepository.Source = "Project"
+            Octopus.Action.RunOnServer = "false"
+        }
+        worker_pool_variable = ""
+    }
+}
