@@ -1,107 +1,3 @@
-step "run-a-script" {
-    name = "kidoo"
-
-    action "kidoo" {
-        action_type = "Octopus.Script"
-        properties = {
-            Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "zippo"
-            Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptFileName = "file.txt"
-            Octopus.Action.Script.ScriptSource = "Package"
-        }
-
-        packages {
-            acquisition_location = "Server"
-            feed = "octopus-server-built-in"
-            package_id = "zippo"
-            properties = {
-                SelectionMode = "immediate"
-            }
-        }
-    }
-}
-
-step "123" {
-    condition = "Always"
-    name = "Refs account var in script"
-    properties = {
-        Octopus.Action.TargetRoles = "hello-tag"
-    }
-
-    action {
-        action_type = "Octopus.Script"
-        properties = {
-            Octopus.Action.RunOnServer = "false"
-            Octopus.Action.Script.ScriptBody = "echo $account_o"
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "PowerShell"
-        }
-
-        packages "zippo" {
-            acquisition_location = "Server"
-            feed = "octopus-server-built-in"
-            package_id = "zippo"
-            properties = {
-                Extract = "True"
-                SelectionMode = "immediate"
-            }
-        }
-    }
-}
-
-step "run-a-script-1" {
-    condition = "Always"
-    name = "Step with a git source"
-
-    action "run-a-script" {
-        action_type = "Octopus.Script"
-        properties = {
-            Octopus.Action.GitRepository.Source = "Project"
-            Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptFileName = "src/files-to-package/bash.sh"
-            Octopus.Action.Script.ScriptSource = "GitRepository"
-        }
-    }
-}
-
-step "run-an-azure-script" {
-    condition = "Always"
-    name = "Run an Azure Script"
-
-    action {
-        action_type = "Octopus.AzurePowerShell"
-        properties = {
-            Octopus.Action.Azure.AccountId = "hello-azure-account"
-            Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "echo 123"
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "Bash"
-        }
-    }
-}
-
-step "deploy-a-bicep-template" {
-    name = "Deploy a Bicep Template"
-    properties = {
-        Octopus.Action.TargetRoles = "hello-tag"
-    }
-
-    action {
-        action_type = "Octopus.AzureDeployBicepTemplate"
-        properties = {
-            Octopus.Action.Azure.AccountId = "another-one"
-            Octopus.Action.Azure.BicepTemplate = "src/files-to-package/template.bicep"
-            Octopus.Action.Azure.ResourceGroupDeploymentMode = "Incremental"
-            Octopus.Action.Azure.TemplateSource = "GitRepository"
-            Octopus.Action.GitRepository.Source = "Project"
-            Octopus.Action.RunOnServer = "false"
-        }
-        worker_pool_variable = ""
-    }
-}
-
 step "padding-1" {
     name = "Padding 1"
 
@@ -168,6 +64,110 @@ step "padding-5" {
             Octopus.Action.Script.ScriptBody = "echo 1234"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
+        }
+    }
+}
+
+step "123" {
+    condition = "Always"
+    name = "Refs account var in script"
+    properties = {
+        Octopus.Action.TargetRoles = "hello-tag"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "echo $account_o"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+
+        packages "zippo" {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "zippo"
+            properties = {
+                Extract = "True"
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
+
+step "run-an-azure-script" {
+    condition = "Always"
+    name = "Run an Azure Script"
+
+    action {
+        action_type = "Octopus.AzurePowerShell"
+        properties = {
+            Octopus.Action.Azure.AccountId = "hello-azure-account"
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo 123"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+    }
+}
+
+step "deploy-a-bicep-template" {
+    name = "Deploy a Bicep Template"
+    properties = {
+        Octopus.Action.TargetRoles = "hello-tag"
+    }
+
+    action {
+        action_type = "Octopus.AzureDeployBicepTemplate"
+        properties = {
+            Octopus.Action.Azure.AccountId = "another-one"
+            Octopus.Action.Azure.BicepTemplate = "src/files-to-package/template.bicep"
+            Octopus.Action.Azure.ResourceGroupDeploymentMode = "Incremental"
+            Octopus.Action.Azure.TemplateSource = "GitRepository"
+            Octopus.Action.GitRepository.Source = "Project"
+            Octopus.Action.RunOnServer = "false"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "run-a-script" {
+    name = "kidoo"
+
+    action "kidoo" {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "zippo"
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptFileName = "file.txt"
+            Octopus.Action.Script.ScriptSource = "Package"
+        }
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "zippo"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
+
+step "run-a-script-1" {
+    condition = "Always"
+    name = "Step with a git source"
+
+    action "run-a-script" {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.GitRepository.Source = "Project"
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptFileName = "src/files-to-package/bash.sh"
+            Octopus.Action.Script.ScriptSource = "GitRepository"
         }
     }
 }
