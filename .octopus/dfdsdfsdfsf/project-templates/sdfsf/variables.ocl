@@ -1,0 +1,3 @@
+variable "Workload.Image" {
+    value "#{k8s_ImageName}:#{k8s_ImageTag}" {}
+}

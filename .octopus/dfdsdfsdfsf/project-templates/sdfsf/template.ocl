@@ -1,0 +1,10 @@
+name = "sdfsf"
+description = ""
+lifecycle = "default"
+
+icon {
+    color = "#757575"
+    id = "layer-group"
+}
+
+managed_template_resources = ["ChannelsAndLifecycles"]
